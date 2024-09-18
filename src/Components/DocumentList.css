@@ -1,0 +1,109 @@
+.search-results {
+  margin-top: 30px;
+}
+
+/* Result Count Styling */
+.result-count {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
+}
+
+/* Unordered list for search results */
+.search-results ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Individual result item */
+.search-results li {
+  padding: 20px; 
+  background-color: #ffffff;
+  margin-bottom: 12px; 
+  border: 1px solid #e5e7eb;
+  border-radius: 8px; 
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Hover effect for search result items */
+.search-results li:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+  background-color: #f9f9f9; /* Subtle background color change on hover */
+}
+
+/* Title Styling - always bold */
+.search-results li a.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff; 
+  text-decoration: none;
+  margin-bottom: 10px; 
+  display: block; 
+}
+
+/* Title hover state */
+.search-results li a.title:hover {
+  text-decoration: underline;
+}
+
+/* Document URI Styling */
+.search-results li a.uri {
+  font-size: 14px; 
+  color: #6b7280; 
+  text-decoration: none; 
+  display: block; 
+  margin-top: 10px; 
+}
+
+/* URI hover state */
+.search-results li a.uri:hover {
+  text-decoration: underline; 
+  color: #6b7280;
+  background-color: lightblue; 
+}
+
+/* Description or excerpt for each search result */
+.search-results p {
+  margin-top: 8px;
+  font-size: 16px; 
+  color: #6b7280;
+}
+
+/* Highlighted Text in Excerpt */
+.highlight {
+  font-weight: bold;
+  color: black;
+}
+
+/* Pagination Controls */
+.pagination {
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+  text-align: center; 
+}
+
+/* Pagination Button Styling */
+.pagination button {
+  background-color: #007bff; 
+  color: white; 
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 5px; 
+  transition: background-color 0.2s ease;
+}
+
+/* Pagination Button Hover State */
+.pagination button:hover {
+  background-color: #0056b3; 
+}
+
+/* Disabled Pagination Button */
+.pagination button:disabled {
+  background-color: #e5e7eb; 
+  cursor: not-allowed; 
+  color: #6b7280; 
+}
