@@ -1,7 +1,7 @@
 // src/App.js
 import React, { useState } from 'react';
-import SearchBar from './Components/SearchBar';
-import DocumentList from './Components/DocumentList';
+import SearchBar from './Components/SearchBar.tsx';
+import DocumentList from './Components/DocumentList.tsx';
 import './App.css';
 
 function App() {
