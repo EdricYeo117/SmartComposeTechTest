@@ -1,5 +1,6 @@
 .search-results {
   margin-top: 30px;
+  padding: 0 15px; /* Add padding for mobile screens */
 }
 
 /* Result Count Styling */
@@ -12,23 +13,28 @@
 
 /* Unordered list for search results */
 .search-results ul {
-  list-style: none;
+  display: flex;
+  flex-direction: column; /* Ensure items stack vertically */
   padding: 0;
+  margin: 0;
 }
 
 /* Individual result item */
 .search-results li {
-  padding: 20px; 
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
   background-color: #ffffff;
-  margin-bottom: 12px; 
-  border: 1px solid #e5e7eb;
-  border-radius: 8px; 
+  margin-bottom: 12px;
+  border: none; /* Removed outline */
+  border-radius: 8px;
   transition: box-shadow 0.2s ease, background-color 0.2s ease;
+  overflow: hidden; /* Ensure items do not overflow their container */
 }
 
 /* Hover effect for search result items */
 .search-results li:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   background-color: #f9f9f9; /* Subtle background color change on hover */
 }
 
@@ -36,10 +42,10 @@
 .search-results li a.title {
   font-size: 20px;
   font-weight: bold;
-  color: #007bff; 
+  color: #007bff;
   text-decoration: none;
-  margin-bottom: 10px; 
-  display: block; 
+  margin-bottom: 10px;
+  display: block;
 }
 
 /* Title hover state */
@@ -49,24 +55,26 @@
 
 /* Document URI Styling */
 .search-results li a.uri {
-  font-size: 14px; 
-  color: #6b7280; 
-  text-decoration: none; 
-  display: block; 
-  margin-top: 10px; 
+  font-size: 14px;
+  color: #6b7280;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* URI hover state */
 .search-results li a.uri:hover {
-  text-decoration: underline; 
+  text-decoration: underline;
   color: #6b7280;
-  background-color: lightblue; 
+  background-color: lightblue;
 }
 
 /* Description or excerpt for each search result */
 .search-results p {
   margin-top: 8px;
-  font-size: 16px; 
+  font-size: 16px;
   color: #6b7280;
 }
 
@@ -78,32 +86,76 @@
 
 /* Pagination Controls */
 .pagination {
-  margin-top: 20px; 
-  margin-bottom: 20px; 
-  text-align: center; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Pagination Button Styling */
 .pagination button {
-  background-color: #007bff; 
-  color: white; 
+  background-color: #007bff;
+  color: white;
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  margin: 0 5px; 
+  margin: 0 5px;
   transition: background-color 0.2s ease;
 }
 
 /* Pagination Button Hover State */
 .pagination button:hover {
-  background-color: #0056b3; 
+  background-color: #0056b3;
 }
 
 /* Disabled Pagination Button */
 .pagination button:disabled {
-  background-color: #e5e7eb; 
-  cursor: not-allowed; 
-  color: #6b7280; 
+  background-color: #e5e7eb;
+  cursor: not-allowed;
+  color: #6b7280;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .search-results li {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+
+  .result-count {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .pagination button {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin: 0 3px;
+  }
+
+  .search-results p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-results {
+    padding: 0 10px;
+  }
+
+  .search-results li {
+    padding: 10px;
+  }
+
+  .result-count {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .pagination button {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin: 0 2px;
+  }
 }
