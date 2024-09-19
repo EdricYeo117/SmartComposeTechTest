@@ -1,20 +1,19 @@
 /* Card container with shadow */
 .search-bar-card {
   width: 100vw; /* Full width of the viewport */
-  padding: 40px 0;
+  padding: 20px 0;
   display: flex;
-  z-index: 900; /* Ensure this is lower than the header */
-  padding-top: 20px;
+  z-index: 900; 
   justify-content: center;
   background-color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for card */
-  margin: 20px 0; /* Remove margin */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 15px 0; 
 }
 
 /* Container for search bar */
 .search-bar {
-  width: 100%; /* Ensure the inner container takes the full width */
-  max-width: 1120px; /* Constrain max width */
+  width: 100%; 
+  max-width: 1120px; 
   height: 56px;
   padding: 20px;
   display: flex;

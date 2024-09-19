@@ -64,35 +64,37 @@ test("does not display suggestions when input length is 2 or less", async () => 
 });
 
 test("selects suggestion on click", async () => {
-  render(<SearchBar onSearch={() => {}} />);
+  const onSearch = jest.fn();
+
+  render(<SearchBar onSearch={onSearch} />);
 
   // Simulate typing in the input
   fireEvent.change(screen.getByPlaceholderText("Search..."), {
     target: { value: "ap" },
   });
 
-  // Wait for suggestions to appear
-  const suggestionElement = await screen.findByText((content, element) => {
-    return element?.textContent === "apple";
-  });
-
-  expect(suggestionElement).toBeInTheDocument();
+  // Wait for the suggestion to appear
+  const suggestionElement = await screen.findByText("apple");
 
   // Click on the suggestion
   fireEvent.click(suggestionElement);
 
-  // Verify if the suggestion has been selected or further actions
-});
+  // Assert that the input value is updated and the search is triggered
+  expect(screen.getByPlaceholderText("Search...")).toHaveValue("apple");
+  expect(onSearch).toHaveBeenCalledWith("apple");
+}); // Test not working, unable to complete the test
 
 test("selects suggestion on enter key press", async () => {
   const onSearch = jest.fn();
 
   render(<SearchBar onSearch={onSearch} />);
 
+  // Simulate typing in the input
   fireEvent.change(screen.getByPlaceholderText("Search..."), {
     target: { value: "ap" },
   });
 
+  // Wait for the suggestion to appear
   await waitFor(() => {
     expect(screen.queryByText("apple")).toBeInTheDocument();
   });
@@ -107,13 +109,14 @@ test("selects suggestion on enter key press", async () => {
     code: "Enter",
   });
 
+  // Wait for the input to update with the selected suggestion
   await waitFor(() => {
     expect(screen.getByPlaceholderText("Search...")).toHaveValue("apple");
   });
 
   expect(onSearch).toHaveBeenCalledWith("apple");
   expect(onSearch).toHaveBeenCalledTimes(1);
-});
+}); // Test not working, unable to complete the test
 
 test("clears input and suggestions on clear button click", () => {
   render(<SearchBar onSearch={() => {}} />);
