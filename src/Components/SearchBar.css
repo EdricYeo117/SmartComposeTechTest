@@ -21,7 +21,7 @@
   width: 100%;
 }
 
-/* Wrapper for input field and clear button */
+/* Wrapper for input field and clear button 'x' */
 .input-clear-wrapper {
   position: relative;
   flex-grow: 1;
@@ -90,9 +90,9 @@
   box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
 }
 
-/* Wrapper to hold input and suggestions together */
+/* Wrapper to hold input and suggestions together, ensures proper alignment */
 .input-suggestions-wrapper {
-  position: relative; /* Make this relative so that suggestions are positioned based on this wrapper */
+  position: relative; /* Relative so objects within are aligned */
   width: 100%;
 }
 
