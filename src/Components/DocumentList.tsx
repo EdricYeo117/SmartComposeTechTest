@@ -117,8 +117,10 @@ const DocumentList: React.FC<DocumentListProps> = ({ query }) => {
 
   return (
     <div className="search-results">
-      {results.length > 0 ? ( // Check if there are any results
-        <>
+    {query && results.length === 0 ? ( // Only show "No results found" if a query exists and there are no results
+      <p>No results found</p>
+    ) : results.length > 0 ? ( // Show the results if there are any
+      <>
           <p className="result-count">
             Showing {((currentPage - 1) * displayedResults) + 1}-
             {Math.min(currentPage * displayedResults, totalResults)} of{" "}
@@ -164,9 +166,7 @@ const DocumentList: React.FC<DocumentListProps> = ({ query }) => {
             </button>
           </div>
         </>
-      ) : (
-        <p>No results found</p> // Display a message if there are no results
-      )}
+      ) : null} {/* Show nothing if there are no results and no query */}
     </div>
   );
 };
