@@ -1,7 +1,7 @@
 # SmartCompose Technical Test
 
 This project was created predominantly utilising React.js and Typescript
-Upon cloning of this repository, please run **__ npm install__** to run the necessary modules
+Upon cloning of this repository, please run **npm install** to run the necessary modules
 
 ## Available Scripts
 
