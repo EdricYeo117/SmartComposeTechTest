@@ -65,6 +65,18 @@ const DocumentList: React.FC<DocumentListProps> = ({ query }) => {
         );
     }
   }, [query]);
+  
+    // Function to filter results based on the query
+    const filterResults = (results: DocumentItem[], query: string) => {
+      return results.filter((item) => {
+        const titleMatch = item.DocumentTitle?.Text.toLowerCase().includes(query.toLowerCase());
+        const excerptMatch = item.DocumentExcerpt?.Text.toLowerCase().includes(query.toLowerCase());
+        return titleMatch || excerptMatch;
+      });
+    };
+  
+    // Filter the results based on the query
+    const filteredResults = filterResults(results, query);
 
   // Function to highlight the search query in the document excerpt [Bolding]
   const highlightText = (text: string | undefined, highlight: string) => {
@@ -110,7 +122,7 @@ const DocumentList: React.FC<DocumentListProps> = ({ query }) => {
   };
 
   // Slice the results based on the current page and the number of results to display
-  const resultsToDisplay = results.slice(
+  const resultsToDisplay = filteredResults.slice(
     (currentPage - 1) * displayedResults,
     currentPage * displayedResults
   );
