@@ -105,44 +105,46 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   };
 
   return (
+    <div className="search-bar-card"> {/* Card container with shadow */}
     <div className="search-bar" ref={containerRef}>
-    <div className="input-wrapper">
-      <div className="input-clear-wrapper">
-        <div className="input-suggestions-wrapper">
-          <input
-            type="text"
-            value={input}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            placeholder="Search..."
-            ref={inputRef}
-          />
-          {showSuggestions && filteredSuggestions.length > 0 && (
-            <div className="search-suggestions">
-              <ul>
-                {filteredSuggestions.map((suggestion, index) => (
-                  <li
-                    key={index}
-                    onClick={() => handleSuggestionClick(suggestion)}
-                    onMouseDown={(e) => e.preventDefault()}
-                    className={index === highlightIndex ? "highlight" : ""}
-                  >
-                    {suggestion}
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <div className="input-wrapper">
+        <div className="input-clear-wrapper">
+          <div className="input-suggestions-wrapper">
+            <input
+              type="text"
+              value={input}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              placeholder="Search..."
+              ref={inputRef}
+            />
+            {showSuggestions && filteredSuggestions.length > 0 && (
+              <div className="search-suggestions">
+                <ul>
+                  {filteredSuggestions.map((suggestion, index) => (
+                    <li
+                      key={index}
+                      onClick={() => handleSuggestionClick(suggestion)}
+                      onMouseDown={(e) => e.preventDefault()}
+                      className={index === highlightIndex ? "highlight" : ""}
+                    >
+                      {suggestion}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+          {input && (
+            <button className="search-bar-clear" onClick={handleClear}>
+              X
+            </button>
           )}
         </div>
-        {input && (
-          <button className="search-bar-clear" onClick={handleClear}>
-            X
-          </button>
-        )}
+        <button onClick={handleSearch} className="search-button">
+          <FaSearch className="search-icon" /> Search
+        </button>
       </div>
-      <button onClick={handleSearch} className="search-button">
-        <FaSearch className="search-icon" /> Search
-      </button>
     </div>
   </div>
   );

@@ -1,11 +1,25 @@
+/* Card container with shadow */
+.search-bar-card {
+  width: 100vw; /* Full width of the viewport */
+  padding: 40px 0;
+  display: flex;
+  z-index: 900; /* Ensure this is lower than the header */
+  padding-top: 20px;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for card */
+  margin: 40px 0; /* Remove margin */
+}
+
 /* Container for search bar */
 .search-bar {
+  width: 100%; /* Ensure the inner container takes the full width */
+  max-width: 1120px; /* Constrain max width */
+  height: 56px;
+  padding: 20px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
-  position: relative;
-  padding: 0 15px;
+  justify-content: center;
 }
 
 /* Search icon */
@@ -17,7 +31,6 @@
 .input-wrapper {
   display: flex;
   align-items: center;
-  position: relative;
   width: 100%;
 }
 
@@ -68,12 +81,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 20px;
+  padding: 15px 32px;
+  gap: 4px;
   font-size: 16px;
   background-color: #007bff;
   color: white;
   border: 1px solid #007bff;
-  border-radius: 8px;
+  border-radius: 0 8px 8px 0;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   margin-left: 0;
@@ -131,6 +145,7 @@
 @media (max-width: 768px) {
   .input-wrapper {
     flex-direction: column;
+    max-width: 100%;
   }
 
   .input-clear-wrapper {
@@ -149,6 +164,7 @@
     margin-bottom: 10px;
     padding-right: 40px;
     box-sizing: border-box;
+    border-radius: 8px;
   }
 
   .search-bar-clear {
@@ -173,10 +189,6 @@
 }
 
 @media (max-width: 480px) {
-  .search-bar {
-    margin-bottom: 20px;
-  }
-
   .search-bar input {
     font-size: 14px;
   }
