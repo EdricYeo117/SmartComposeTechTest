@@ -18,7 +18,7 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner, test are done utilising JEST.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ------------------------------------------------
@@ -42,3 +42,9 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 - @types/react-dom: Type definitions for ReactDOM.
 - jest: JavaScript testing framework.
 - ts-jest: Jest transformer for TypeScript.
+
+
+### Assumptions on creating the application:
+1) Login and Access Control has been handled
+2) Mocked Search Result Data and Search API Endpoint does not need validation for proper JSON format and parameters
+3) Mocked Suggestion API Endpoint does not need validation
