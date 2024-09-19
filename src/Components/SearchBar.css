@@ -8,6 +8,11 @@
   padding: 0 15px;
 }
 
+/* Search icon */
+.search-icon {
+  margin-right: 10px;
+}
+
 /* Wrapper for input and button */
 .input-wrapper {
   display: flex;
@@ -85,6 +90,12 @@
   box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
 }
 
+/* Wrapper to hold input and suggestions together */
+.input-suggestions-wrapper {
+  position: relative; /* Make this relative so that suggestions are positioned based on this wrapper */
+  width: 100%;
+}
+
 /* Suggestions dropdown */
 .search-suggestions {
   position: absolute;
@@ -95,10 +106,9 @@
   border: 1px solid #ccc;
   border-radius: 0 0 8px 8px;
   z-index: 10;
-  max-height: 200px;
-  overflow-y: auto;
+  /* max-height: 200px;
+  overflow-y: auto; */ /* Uncomment this to make the suggestions scrollable */
   box-sizing: border-box;
-  margin: 0;
 }
 
 /* Suggestions list styling */
@@ -130,6 +140,10 @@
     position: relative;
   }
 
+  .input-suggestions-wrapper {
+    position: relative; 
+  }
+
   .search-bar input {
     width: 100%;
     margin-bottom: 10px;
@@ -139,7 +153,7 @@
 
   .search-bar-clear {
     right: 15px;
-    top: 50%;
+    top: 45%;
     transform: translateY(-50%);
     font-size: 16px;
     position: absolute;
@@ -152,7 +166,9 @@
   }
 
   .search-suggestions {
-    width: 100%;
+    width: 100%; 
+    left: 0;
+    margin: 0;
   }
 }
 
@@ -171,5 +187,9 @@
 
   .search-bar-clear {
     font-size: 16px;
+  }
+
+  .search-suggestions {
+    width: 100%;
   }
 }

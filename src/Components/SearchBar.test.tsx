@@ -72,7 +72,10 @@ test("selects suggestion on click", async () => {
   });
 
   // Wait for suggestions to appear
-  const suggestionElement = await screen.findByText("apple");
+  const suggestionElement = await screen.findByText((content, element) => {
+    return element?.textContent === "apple";
+  });
+
   expect(suggestionElement).toBeInTheDocument();
 
   // Click on the suggestion

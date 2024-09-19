@@ -2,21 +2,12 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
   font-family: 'Inter', sans-serif; 
-  background-color: #f5f7fa; 
+  background-color: white;
   color: #333;
-}
-
-h1 {
-  font-size: 32px; 
-  font-weight: 600;
-  color: #123456; 
-  margin-bottom: 20px;
-  text-align: center;
 }
 
 /* Global Container Styling */
@@ -28,14 +19,14 @@ h1 {
 
 @media (max-width: 768px) {
   .search-bar input {
-    width: 100%; /* Make the input take full width on smaller screens */
+    width: 100%; 
   }
 
   .search-suggestions {
-    width: 100%; /* Full width for the suggestions dropdown */
+    width: 100%; 
   }
 
   .search-results li {
-    padding: 15px; /* Adjust padding for smaller screens */
+    padding: 15px 0px;
   }
 }

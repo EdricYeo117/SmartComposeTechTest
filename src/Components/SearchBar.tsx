@@ -106,8 +106,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
   return (
     <div className="search-bar" ref={containerRef}>
-      <div className="input-wrapper">
-        <div className="input-clear-wrapper">
+    <div className="input-wrapper">
+      <div className="input-clear-wrapper">
+        <div className="input-suggestions-wrapper">
           <input
             type="text"
             value={input}
@@ -116,33 +117,34 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             placeholder="Search..."
             ref={inputRef}
           />
-          {input && (
-            <button className="search-bar-clear" onClick={handleClear}>
-              X
-            </button>
+          {showSuggestions && filteredSuggestions.length > 0 && (
+            <div className="search-suggestions">
+              <ul>
+                {filteredSuggestions.map((suggestion, index) => (
+                  <li
+                    key={index}
+                    onClick={() => handleSuggestionClick(suggestion)}
+                    onMouseDown={(e) => e.preventDefault()}
+                    className={index === highlightIndex ? "highlight" : ""}
+                  >
+                    {suggestion}
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
-        <button onClick={handleSearch} className="search-button">
-          <FaSearch className="search-icon" /> Search
-        </button>
+        {input && (
+          <button className="search-bar-clear" onClick={handleClear}>
+            X
+          </button>
+        )}
       </div>
-      {showSuggestions && filteredSuggestions.length > 0 && (
-        <div className="search-suggestions">
-          <ul>
-            {filteredSuggestions.map((suggestion, index) => (
-              <li
-                key={index}
-                onClick={() => handleSuggestionClick(suggestion)}
-                onMouseDown={(e) => e.preventDefault()} // Prevent default to stop event propagation
-                className={index === highlightIndex ? "highlight" : ""}
-              >
-                {suggestion}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <button onClick={handleSearch} className="search-button">
+        <FaSearch className="search-icon" /> Search
+      </button>
     </div>
+  </div>
   );
 };
 
