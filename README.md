@@ -31,7 +31,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ### Node Packages Utilised:
 #### Dependencies
 - @testing-library/user-event: Utility for simulating user interactions in tests.
-- axios: Promise-based HTTP client for making requests.
+- axios: Promise-based HTTP client for making requests. (Deprecated Use)
 - react: Library for building user interfaces.
 - react-dom: Provides DOM-specific methods for React.
 - react-icons: Library for including popular icons as React components.
