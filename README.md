@@ -5,10 +5,10 @@ Upon cloning of this repository, please run **npm install** to run the necessary
 For online testing, please click here: [Deployed Website](https://smart-compose-tech-test-yeojinrong.vercel.app/)
 
 Reccomended to attempt these searches to showcase filtering functionaility:
-"Social Development"
-"Immunisation"
-"Singapore" 
-"Vaccine"
+- "Social Development"
+- "Immunisation"
+- "Singapore" 
+- "Vaccine"
 
 ## Available Scripts
 
