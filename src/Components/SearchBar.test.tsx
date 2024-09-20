@@ -44,15 +44,12 @@ test("displays suggestions when input length is greater than 2", async () => {
   render(<SearchBar onSearch={() => {}} />);
 
   fireEvent.change(screen.getByPlaceholderText("Search..."), {
-    target: { value: "a" },
+    target: { value: "chi" },
   });
 
-  // Wait for suggestions to appear with a slight delay
+  // Wait for suggestions to appear
   await waitFor(() => {
-    // Add a small delay
-    setTimeout(() => {
-      expect(screen.getByText("child")).toBeInTheDocument();
-    }, 100);
+    expect(screen.getByText("child care")).toBeInTheDocument();
   });
 });
 
@@ -76,19 +73,19 @@ test("selects suggestion on click", async () => {
 
   // Simulate typing in the input
   fireEvent.change(screen.getByPlaceholderText("Search..."), {
-    target: { value: "ap" },
+    target: { value: "chi" },
   });
 
   // Wait for the suggestion to appear
-  const suggestionElement = await screen.findByText("child");
+  const suggestionElement = await screen.findByText("child care");
 
   // Click on the suggestion
   fireEvent.click(suggestionElement);
 
   // Assert that the input value is updated and the search is triggered
-  expect(screen.getByPlaceholderText("Search...")).toHaveValue("child");
-  expect(onSearch).toHaveBeenCalledWith("child");
-}); // Test not working, unable to complete the test
+  expect(screen.getByPlaceholderText("Search...")).toHaveValue("child care");
+  expect(onSearch).toHaveBeenCalledWith("child care");
+});
 
 test("selects suggestion on enter key press", async () => {
   const onSearch = jest.fn();
@@ -97,12 +94,12 @@ test("selects suggestion on enter key press", async () => {
 
   // Simulate typing in the input
   fireEvent.change(screen.getByPlaceholderText("Search..."), {
-    target: { value: "ap" },
+    target: { value: "chi" },
   });
 
   // Wait for the suggestion to appear
   await waitFor(() => {
-    expect(screen.queryByText("child")).toBeInTheDocument();
+    expect(screen.getByText("child care")).toBeInTheDocument();
   });
 
   // Simulate ArrowDown and Enter key press
@@ -117,12 +114,12 @@ test("selects suggestion on enter key press", async () => {
 
   // Wait for the input to update with the selected suggestion
   await waitFor(() => {
-    expect(screen.getByPlaceholderText("Search...")).toHaveValue("child");
+    expect(screen.getByPlaceholderText("Search...")).toHaveValue("child care");
   });
 
-  expect(onSearch).toHaveBeenCalledWith("child");
+  expect(onSearch).toHaveBeenCalledWith("child care");
   expect(onSearch).toHaveBeenCalledTimes(1);
-}); // Test not working, unable to complete the test
+});
 
 test("clears input and suggestions on clear button click", () => {
   render(<SearchBar onSearch={() => {}} />);
