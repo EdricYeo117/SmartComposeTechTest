@@ -9,7 +9,14 @@ beforeEach(() => {
     Promise.resolve({
       json: () =>
         Promise.resolve({
-          suggestions: ["apple", "banana", "cherry", "date", "fig", "grape"],
+          suggestions: [
+            "child care",
+            "child vaccination",
+            "child health",
+            "child education",
+            "child development account",
+            "register childcare",
+          ],
         }),
     })
   ) as jest.Mock;
@@ -44,8 +51,7 @@ test("displays suggestions when input length is greater than 2", async () => {
   await waitFor(() => {
     // Add a small delay
     setTimeout(() => {
-      expect(screen.getByText("apple")).toBeInTheDocument();
-      expect(screen.getByText("banana")).toBeInTheDocument();
+      expect(screen.getByText("child")).toBeInTheDocument();
     }, 100);
   });
 });
@@ -59,7 +65,7 @@ test("does not display suggestions when input length is 2 or less", async () => 
 
   // Wait until suggestions appear
   await waitFor(() => {
-    expect(screen.queryByText("apple")).not.toBeInTheDocument();
+    expect(screen.queryByText("child")).not.toBeInTheDocument();
   });
 });
 
@@ -74,14 +80,14 @@ test("selects suggestion on click", async () => {
   });
 
   // Wait for the suggestion to appear
-  const suggestionElement = await screen.findByText("apple");
+  const suggestionElement = await screen.findByText("child");
 
   // Click on the suggestion
   fireEvent.click(suggestionElement);
 
   // Assert that the input value is updated and the search is triggered
-  expect(screen.getByPlaceholderText("Search...")).toHaveValue("apple");
-  expect(onSearch).toHaveBeenCalledWith("apple");
+  expect(screen.getByPlaceholderText("Search...")).toHaveValue("child");
+  expect(onSearch).toHaveBeenCalledWith("child");
 }); // Test not working, unable to complete the test
 
 test("selects suggestion on enter key press", async () => {
@@ -96,7 +102,7 @@ test("selects suggestion on enter key press", async () => {
 
   // Wait for the suggestion to appear
   await waitFor(() => {
-    expect(screen.queryByText("apple")).toBeInTheDocument();
+    expect(screen.queryByText("child")).toBeInTheDocument();
   });
 
   // Simulate ArrowDown and Enter key press
@@ -111,10 +117,10 @@ test("selects suggestion on enter key press", async () => {
 
   // Wait for the input to update with the selected suggestion
   await waitFor(() => {
-    expect(screen.getByPlaceholderText("Search...")).toHaveValue("apple");
+    expect(screen.getByPlaceholderText("Search...")).toHaveValue("child");
   });
 
-  expect(onSearch).toHaveBeenCalledWith("apple");
+  expect(onSearch).toHaveBeenCalledWith("child");
   expect(onSearch).toHaveBeenCalledTimes(1);
 }); // Test not working, unable to complete the test
 
@@ -129,5 +135,5 @@ test("clears input and suggestions on clear button click", () => {
   fireEvent.click(screen.getByRole("button", { name: /x/i }));
 
   expect(screen.getByPlaceholderText("Search...")).toHaveValue("");
-  expect(screen.queryByText("apple")).not.toBeInTheDocument();
+  expect(screen.queryByText("child")).not.toBeInTheDocument();
 });

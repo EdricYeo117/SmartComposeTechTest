@@ -23,7 +23,6 @@ const DocumentList: React.FC<DocumentListProps> = ({ query }) => {
   const [displayedResults, setDisplayedResults] = useState<number>(10); // Number of results to display per page
   const [currentPage, setCurrentPage] = useState<number>(1); // Current page number for pagination, not required but added for better user experience
 
-  /*
   //Fetching search results from the provided endpoint
   useEffect(() => {
     if (query) {
@@ -45,8 +44,9 @@ const DocumentList: React.FC<DocumentListProps> = ({ query }) => {
           console.error("Error fetching search results:", error) // Log the error if any
         );
     }
-  }, [query]); // Fetch the search results whenever the query changes */ // This is the original not using axios
+  }, [query]); // Fetch the search results whenever the query changes 
 
+  /*
   // Fetching search results from the provided endpoint using axios
   useEffect(() => {
     if (query) {
@@ -64,7 +64,7 @@ const DocumentList: React.FC<DocumentListProps> = ({ query }) => {
           console.error("Error fetching search results:", error)
         );
     }
-  }, [query]);
+  }, [query]); */ // Unable to use axios, due to jest mock error
 
   // Function to filter results based on the query, allowing for any subset word matches 
   const filterResults = (results: DocumentItem[], query: string) => {

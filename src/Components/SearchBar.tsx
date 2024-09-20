@@ -27,7 +27,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const inputRef = useRef<HTMLInputElement>(null); // Ref for input element
   const containerRef = useRef<HTMLDivElement>(null); // Ref for container element
 
-  /* // Fetching search suggestions from the provided endpoint
+  // Fetching search suggestions from the provided endpoint
   useEffect(() => {
     fetch(
       "https://gist.githubusercontent.com/yuhong90/b5544baebde4bfe9fe2d12e8e5502cbf/raw/e026dab444155edf2f52122aefbb80347c68de86/suggestion.json"
@@ -65,8 +65,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []); */
+  }, []);
 
+  /*
   // Fetching suggestions from the API on initial component mount using Axios
   useEffect(() => {
     axios
@@ -111,7 +112,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside); // Cleaning up the event listener on unmount
     };
-  }, []);
+  }, []); */ // Unable to use axios, due to jest mock error
 
   // Function to handle input change
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
