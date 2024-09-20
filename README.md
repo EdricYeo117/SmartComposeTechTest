@@ -1,7 +1,7 @@
 # SmartCompose Technical Test
 
 This project was created predominantly utilising React.js and Typescript
-Upon cloning of this repository, please run ### **npm install** to run the necessary modules
+Upon cloning of this repository, please run **npm install** to run the necessary modules
 For online testing, please click here: [Deployed Website](https://smart-compose-tech-test-yeojinrong.vercel.app/)
 
 Reccomended to attempt these searches to showcase filtering functionaility:
@@ -13,6 +13,8 @@ Reccomended to attempt these searches to showcase filtering functionaility:
 ## Available Scripts
 
 In the project directory, you can run:
+### `npm install'
+Installs the necessary modules for application to run
 
 ### `npm start`
 
